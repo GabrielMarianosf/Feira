@@ -3,7 +3,7 @@
     <form action="../controler/cadastrarbanca.php" method="POST">
             <center>
                 
-                <h1>Editar uma Banca! </h1>
+                <h1>Editar uma Banca !!!!!!!! </h1>
                 
                 <b>Númedo do Box: *</b> <input type="text" id="box" name="box" placeholder="Digite o Box"
                     required /><br><br>
