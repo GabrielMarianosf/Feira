@@ -15,11 +15,11 @@
     $res = enviaContato($contato);
     echo $res;
 
-    //if($res == true){
-    // header("Location: ../View/contato.html");
-    //}else {
-    //   header("Location: ../index.html");
-    //}
+    if($res == true){
+    header("Location: ../View/contato.html");
+    }else {
+    header("Location: ../index.html");
+    }
     } catch (Exception $e) {
        echo $e;
     }

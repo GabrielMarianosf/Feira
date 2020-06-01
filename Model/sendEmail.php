@@ -9,13 +9,13 @@
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
 
-    function enviaContato($contato){
+    function enviaContato($contato) {
 
     $mail = new PHPMailer(true);
     $mail2 = new PHPMailer(true);
 
     try {
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -43,8 +43,10 @@
 </body>
 </html>";
         $mail->AltBody = 'nome: $contato->nome email: $contato->email telefone: $contato->telefone mensagem: $contato->mensagem';
+        if ($mail->send()) { echo "Email 1 enviado !!"; }
+
+
         
-        $mail2->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail2->isSMTP();
         $mail2->Host = 'smtp.gmail.com';
         $mail2->SMTPAuth = true;
@@ -72,9 +74,11 @@
 </body>
 </html>";
         $mail->AltBody = "nome: $contato->nome email: '$contato->email' telefone: '$contato->telefone' mensagem: '$contato->mensagem'";
+        if ($mail2->send()) {echo "Email 2 enviado !!"; }
         return true;
     } catch (Exception $e) {
-        echo $e;
+        echo $mail->Errorinfo;
+        echo $mail2->ErrorInfo;
         return false;
     }
 
