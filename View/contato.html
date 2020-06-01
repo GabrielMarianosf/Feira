@@ -42,11 +42,11 @@
     <div id="texto">
         <form action="../controler/enviaContato.php" method="POST">
             <h1>Entre em Contato Conosco !</h1><br>
-            <b>Nome: *</b> <input type="text" placeholder="Digite seu Nome" /><br><br>
-            <b>E-mail: *</b> <input type="text" placeholder="Digite Seu Email" /><br><br>
-            <b>Telefone: *</b> <input type="text" placeholder="(xx) xxxxx-xxxx" /><br><br>
-            <b>Assunto: *</b> <input type="text" placeholder="Assunto" /><br><br>
-            <b>Mensagem: * <br></b> <textarea rows="5" cols="80"></textarea><br><br>
+            <b>Nome: *</b> <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" /><br><br>
+            <b>E-mail: *</b> <input type="text" id="email" name="email" placeholder="Digite Seu Email" /><br><br>
+            <b>Telefone: *</b> <input type="text" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" /><br><br>
+            <b>Assunto: *</b> <input type="text" id="assunto" name="assunto" placeholder="Assunto" /><br><br>
+            <b>Mensagem: * <br></b> <textarea id="mensagem" name="mensagem" rows="5" cols="80"></textarea><br><br>
             <div class="g-recaptcha" data-sitekey="6Lcb9fQUAAAAAG0q2t0XEY3kLVx_tC_YimVzFUrs"></div>
             <input type="submit" value="Enviar" name="enviar">
         </form>
