@@ -30,18 +30,6 @@
   </div>
   <div id="conteudo_edbanca">
   </div>
-  <script>
-    document.querySelectorAll('a').forEach(link => {
-      const conteudo_edbanca = document.getElementById('conteudo_edbanca')
-
-      link.onclick = function (e) {
-        e.preventDefault()
-        fetch(link.href)
-          .then(resp => resp.text())
-          .then(html => conteudo_edbanca.innerHTML = html)
-      }
-    })
-  </script>
 
 </body>
 

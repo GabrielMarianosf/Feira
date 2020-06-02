@@ -72,5 +72,18 @@ body{
   line-height: 50px;
 }
 
+#result {
+   top: 30%;
+   left: 0%;
+   width: 60%;
+   height: 16%;
+   background-color: rgb(13, 13, 14);
+   border-radius: 20px 80px;
+   font-size: medium;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   text-align: center;
+   color: white;
+}
+
 
 
