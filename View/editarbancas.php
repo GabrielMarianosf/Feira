@@ -14,17 +14,15 @@
                 <h1>Editar uma Banca !!!!!!!! </h1>
                 
                 <b>Númedo do Box: *</b> <input type="text" id="box" name="box" placeholder="Digite o Box"
-                    required /><br><br>
-                <div class="g-recaptcha" data-sitekey="6LdXS_oUAAAAAIpAaqaWH7RlUhsWFi_GbPUWZdcm"></div>
+                    required />
+                
                 <input type="submit" value="Enviar" class="btn btn-primary" name="Cadastrar">
             </center>
         </form>
+        <br/><br/>
+        <div id="conteudoo">
         <?php
-
             include_once("../Model/conecta.php");
-
-        
-
         //Receber o número da página
 		$pagina_atual = filter_input(INPUT_GET,'pagina', FILTER_SANITIZE_NUMBER_INT);		
 		$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
@@ -39,13 +37,50 @@
             $resultado = mysqli_query($conexao, $sql);
             while ($row = mysqli_fetch_assoc($resultado)) {
 
-                echo '<center><div id="result">'.'Nome: '.$row['id'].
-                '<br/>Categoria: '.$row['categoria'].
-                '<br/>Telefone: ' .$row['telefone'].
-                '<br/>Box: '. $row['box'].
-                '<br/>E-mail: '. $row['email'].
-                '<br/>Descrição: '. $row['descricao'].
-                '</div><br/></center>';
+                //echo '<center><div id="result">'.'Nome: '.$row['id'].
+                //'<br/>Categoria: '.$row['categoria'].
+                //'<br/>Telefone: ' .$row['telefone'].
+                //'<br/>Box: '. $row['box'].
+                //'<br/>E-mail: '. $row['email'].
+                //'<br/>Descrição: '. $row['descricao'].
+                //'</div><br/></center>';
+                echo "
+                    <br/><center><div id='result'>
+                    <table border='0px' class='tableb'>
+                        <tr>
+                            <td>ID: </td>
+                            <td>".$row['id']."</td>
+                        </tr>
+                        <tr>
+                            <td>Nome: </td>
+                            <td>".$row['nome']."</td>
+                        </tr>
+                        <tr>
+                            <td>Categoria: </td>
+                            <td>".$row['categoria']."</td>
+                        </tr>
+                        <tr>
+                            <td>Telefone: </td>
+                            <td>".$row['telefone']."</td>
+                        </tr>
+                        <tr>
+                            <td>Box: </td>
+                            <td>".$row['box']."</td>
+                        </tr>
+                        <tr>
+                            <td>E-mail: </td>
+                            <td>".$row['email']."</td>
+                        </tr>
+                        <tr>
+                            <td>Descricao: </td>
+                            <td>".$row['descricao']."</td>
+                        </tr>
+                        <tr>
+                            <td><a href='edit_usuario.php?id=" . $row['id'] . "'>Editar</a></td>
+                            <td><a href='edit_usuario.php?id=" . $row['id'] . "'>Apagar</a></td>
+                        </tr>
+                    </table></div></center><br/>
+                    ";
                 //echo "ID: " . $row['id']. "<br/>";
                 //echo "Nome: " . $row['nome']. "<br/>";
                 //echo "Categoria: " . $row['categoria']. "<br/>";
@@ -53,7 +88,11 @@
                 //echo "Box: " . $row['box']. "<br/>";
                 //echo "E-mail: " . $row['email']. "<br/>";
                 //echo "Descrição: " . $row['descricao']. "<br/><hr>";
-            }
+            }?>
+            </div>
+            <center>
+            <div id="ff">
+                <?php
 
         //Paginção - Somar a quantidade de usuários
 		$result_pg = "SELECT COUNT(id) AS num_result FROM banca";
@@ -64,7 +103,8 @@
 		$quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
 		
 		//Limitar os link antes depois
-		$max_links = 2;
+        
+        $max_links = 2;
 		echo "<a href='editarbancas.php?pagina=1'>Primeira</a> ";
 		
 		for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
@@ -73,7 +113,7 @@
 			}
 		}
 			
-		echo "$pagina ";
+		echo " ".$pagina." ";
 		
 		for($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++){
 			if($pag_dep <= $quantidade_pg){
@@ -83,5 +123,7 @@
 		
 		echo "<a href='editarbancas.php?pagina=$quantidade_pg'>Ultima</a>";
         ?>
+        </center>
+        </div>
 </body>
 </html>

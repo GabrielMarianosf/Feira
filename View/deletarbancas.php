@@ -11,12 +11,6 @@
                 <div class="g-recaptcha" data-sitekey="6LdXS_oUAAAAAIpAaqaWH7RlUhsWFi_GbPUWZdcm"></div>
                 <input type="submit" value="Enviar" class="btn btn-primary" name="Cadastrar">
             </center>
-        </form><br/>
-
-        <ul class="busca">
-		
-		</ul>
-
-        
+        </form><br/>        
 </body>
 </html>
