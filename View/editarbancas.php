@@ -18,7 +18,7 @@
             $sql = "select * from banca";
             $resultado = mysqli_query($conexao, $sql);
             while ($row = mysqli_fetch_assoc($resultado)) {
-                echo "<input type='text' value'$row['id']'";
+                echo "<input type='text' value='$row['id']'/> ";
                 echo "Nome: " . $row['nome']. "<br/>";
                 echo "Categoria: " . $row['categoria']. "<br/>";
                 echo "Telefone: " . $row['telefone']. "<br/>";
