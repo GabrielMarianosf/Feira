@@ -24,6 +24,8 @@
             <center>
             <div id="ff">
 <?php
+        session_start();
+        
         include_once("../Model/conecta.php");
         $pagina_atual = filter_input(INPUT_GET,'pagina', FILTER_SANITIZE_NUMBER_INT);		
 		$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
@@ -92,8 +94,8 @@
                     <br/><center><div id='result'>
                     <table border='0px' class='tableb'>
                         <tr>
-                            <td>ID: </td>
-                            <td>".$row['id']."</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>Nome: </td>
@@ -166,7 +168,12 @@
 			}
 		}
 		
-		echo "<a href='editarbancas.php?pagina=$quantidade_pg'>Ultima</a>";
+        echo "<a href='editarbancas.php?pagina=$quantidade_pg'>Ultima</a>";
+        
+        if(isset($_SESSION['msg'])){
+			echo $_SESSION['msg'];
+			unset($_SESSION['msg']);
+		}
 ?>
         </center>
         </div>
