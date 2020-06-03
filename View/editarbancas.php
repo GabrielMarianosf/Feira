@@ -20,8 +20,52 @@
             </center>
         </form>
         <br/><br/>
+        </div>
+            <center>
+            <div id="ff">
+<?php
+        include_once("../Model/conecta.php");
+        $pagina_atual = filter_input(INPUT_GET,'pagina', FILTER_SANITIZE_NUMBER_INT);		
+		$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+		
+		//Setar a quantidade de itens por pagina
+		$qnt_result_pg = 3;
+		
+		//calcular o inicio visualização
+		$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
+        //Paginção - Somar a quantidade de usuários
+		$result_pg = "SELECT COUNT(id) AS num_result FROM banca";
+		$resultado_pg = mysqli_query($conexao, $result_pg);
+		$row_pg = mysqli_fetch_assoc($resultado_pg);
+		//echo $row_pg['num_result'];
+		//Quantidade de pagina 
+		$quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+		
+		//Limitar os link antes depois
+        
+        $max_links = 2;
+		echo "<a href='editarbancas.php?pagina=1'>Primeira</a> ";
+		
+		for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
+			if($pag_ant >= 1){
+				echo "<a href='editarbancas.php?pagina=$pag_ant'>$pag_ant</a> ";
+			}
+		}
+			
+		echo " ".$pagina." ";
+		
+		for($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++){
+			if($pag_dep <= $quantidade_pg){
+				echo "<a href='editarbancas.php?pagina=$pag_dep'>$pag_dep</a> ";
+			}
+		}
+		
+		echo "<a href='editarbancas.php?pagina=$quantidade_pg'>Ultima</a>";
+?>
+        </center>
+        </div>
         <div id="conteudoo">
-        <?php
+<?php
             include_once("../Model/conecta.php");
         //Receber o número da página
 		$pagina_atual = filter_input(INPUT_GET,'pagina', FILTER_SANITIZE_NUMBER_INT);		
@@ -72,12 +116,12 @@
                             <td>".$row['email']."</td>
                         </tr>
                         <tr>
-                            <td>Descricao: </td>
+                            <td style='width:1%;'>Descricao: </td>
                             <td>".$row['descricao']."</td>
                         </tr>
                         <tr>
-                            <td><a href='edit_usuario.php?id=" . $row['id'] . "'>Editar</a></td>
-                            <td><a href='edit_usuario.php?id=" . $row['id'] . "'>Apagar</a></td>
+                            <td><a class='btn btn-info left-margin' href='editar_bancas.php?id=" . $row['id'] . "'><span class='glyphicon glyphicon-edit'></span>Editar</a></td>
+                            <td><span class='glyphicon glyphicon-remove'></span><a class='btn btn-danger delete-object' href='deletar_bancas.php?id=" . $row['id'] . "'>Apagar</a></td>
                         </tr>
                     </table></div></center><br/>
                     ";
@@ -88,11 +132,12 @@
                 //echo "Box: " . $row['box']. "<br/>";
                 //echo "E-mail: " . $row['email']. "<br/>";
                 //echo "Descrição: " . $row['descricao']. "<br/><hr>";
-            }?>
+            }
+?>
             </div>
             <center>
             <div id="ff">
-                <?php
+<?php
 
         //Paginção - Somar a quantidade de usuários
 		$result_pg = "SELECT COUNT(id) AS num_result FROM banca";
@@ -122,7 +167,7 @@
 		}
 		
 		echo "<a href='editarbancas.php?pagina=$quantidade_pg'>Ultima</a>";
-        ?>
+?>
         </center>
         </div>
 </body>
