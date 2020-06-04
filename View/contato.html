@@ -2,6 +2,16 @@
 <html lang="pt">
 
 <head>
+    <script>
+        window.onload = function () {
+            var recaptcha = document.forms["form-contato"]["g-recaptcha-response"];
+            recaptcha.required = true;
+            recaptcha.oninvalid = function (e) {
+                // fazer algo, no caso to dando um alert
+                alert("Por Favor marque a opção ' Não sou um robô ! '");
+            }
+        }
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-store" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,18 +35,17 @@
     </header>
     <div id="texto">
         <br /><br />
-        <form action="../controler/enviaContato.php" method="POST">
+        <form action="../controler/enviaContato.php" id='form-contato' method="POST">
             <h1>Entre em Contato Conosco !</h1><br>
             <b>Nome: *</b> <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" required /><br><br>
             <b>E-mail: *</b> <input type="text" id="email" name="email" placeholder="Digite Seu Email"
                 required /><br><br>
             <b>Telefone: *</b> <input type="text" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" /><br><br>
             <b>Assunto: *</b> <input type="text" id="assunto" name="assunto" placeholder="Assunto" required /><br><br>
-            <b>Mensagem: * <br></b> <textarea id="mensagem" name="mensagem" rows="5" cols="80"
-                required></textarea><br><br>
-            <div class="g-recaptcha" data-sitekey="6Lcb9fQUAAAAAG0q2t0XEY3kLVx_tC_YimVzFUrs"></div>
-            <input type="submit" value="Enviar" name="enviar">
-        </form>
+            <b>Mensagem: * <br></b> <textarea id="mensagem" name="mensagem" rows="5" cols="80" required></textarea><br>
+            <div class="g-recaptcha" data-sitekey="6Lc0jgAVAAAAADN5rIumUNSwF96YwcOnvTAyFjQo"></div><br />
+            <input type="submit" value="Enviar" class="btn btn-primary" name="enviar"><br />
+        </form><br />
 
 
     </div>
