@@ -127,7 +127,7 @@
                         </tr>
                         <tr>
                             <td><a class='btn btn-info left-margin' href='editar_bancas.php?id=" . $row['id'] . "'><span class='glyphicon glyphicon-edit'></span>Editar</a></td>
-                            <td><span class='glyphicon glyphicon-remove'></span><a class='btn btn-danger delete-object' href='deletar_bancas.php?id=" . $row['id'] . "'>Deletar</a></td>
+                            <td><span class='glyphicon glyphicon-remove'></span><a class='btn btn-danger delete-object' href='deletar_banca.php?box=" . $row['box'] . "'>Deletar</a></td>
                         </tr>
                     </table></div></center><br/>
                     ";

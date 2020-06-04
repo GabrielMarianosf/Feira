@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-store" />
@@ -8,34 +9,19 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
-    <form action="editar_busca_banca.php" method="POST">
-            <center>
-                
-                <h1>Editar uma Banca !!!!!!!! </h1><br/>
-                
-                <b>Númedo do Box: *</b> <input type="text" id="box" name="box" placeholder="Digite o Box"
-                    required />
-                
-                <input type="submit" value="Buscar" class="btn btn-primary" name="Cadastrar">
-            </center>
-        </form>
-        <br/><br/>            
-        <div id="conteudoo">
+    <div id="conteudoo">
 <?php
             session_start();
-            if(isset($_SESSION['msg'])){
-			echo $_SESSION['msg'];
-			unset($_SESSION['msg']);
-		}
             include_once("../Model/conecta.php");
 
-		    $busca = filter_input(INPUT_POST,'box', FILTER_SANITIZE_NUMBER_INT);		
+		    $busca = filter_input(INPUT_GET,'box', FILTER_SANITIZE_NUMBER_INT);		
             $sql = "SELECT * FROM banca where box='$busca'";
             $resultado = mysqli_query($conexao, $sql);
             if(!empty($resultado)){
                 while ($row = mysqli_fetch_assoc($resultado)) {
                 echo "
-                    <br/><center><div id='result'>
+                    <br/> <center> <div id='result'>
+                    <form action='../controler/proc_deleta_banca.php' method='POST'>
                     <table border='0px' class='tableb'>
                         <tr>
                             <td></td>
@@ -66,10 +52,13 @@
                             <td>".$row['descricao']."</td>
                         </tr>
                         <tr>
-                            <td><a class='btn btn-info left-margin' href='editar_bancas.php?id=" . $row['id'] . "'><span class='glyphicon glyphicon-edit'></span>Editar</a></td>
-                            <td><span class='glyphicon glyphicon-remove'></span><a class='btn btn-danger delete-object' href='deletar_banca.php?box=" . $row['box'] . "'>Deletar</a></td>
+                            <td colspan='2'>
+                            <input type='hidden' value='".$row['box']."' id='del_box' name='del_box'/>
+                            <input type='submit' value='DELETAR' class='btn btn-danger delete-object' name='enviar'>
+                            </td>
                         </tr>
-                    </table></div></center><br/>
+                    </table>
+                    </form></div></center><br/>
                     ";
                 }
             }else {
@@ -78,6 +67,7 @@
                 
             
 ?>
-        </div>      
+        </div>
+    
 </body>
 </html>
