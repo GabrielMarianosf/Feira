@@ -9,6 +9,20 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
+    <header id="header">
+        <nav class="links" style="--items: 5;">
+            <a href="painelcadastrarbanca.html">Cadastrar Banca</a>
+            <a href="editar_bancas.php">Editar / Buscar Banca</a>
+            <a href="deletarbancas.php">Deletar Banca</a>
+            <a href="">Sair / Deslogar</a>
+            <a href=""></a>
+            <span class="line"></span>
+        </nav>
+    </header>
+    <br><br><br><br /><br><br><br><br />
+    <center>
+    <h1>Deletar Bancas</h1>
+    </center><br/><br/>
     <div id="conteudoo">
 <?php
             session_start();
@@ -52,9 +66,13 @@
                             <td>".$row['descricao']."</td>
                         </tr>
                         <tr>
-                            <td colspan='2'>
-                            <input type='hidden' value='".$row['box']."' id='del_box' name='del_box'/>
-                            <input type='submit' value='DELETAR' class='btn btn-danger delete-object' name='enviar'>
+                            <td>
+                                <input type='hidden' value='".$row['box']."' id='del_box' name='del_box'/>
+                                <input type='submit' value='DELETAR' class='btn btn-danger delete-object' name='deletar'>
+                            </td>
+                            <td>
+                                
+                            <a class='btn btn-primary' href='deletarbancas.php' role='button'>Cancelar</a>
                             </td>
                         </tr>
                     </table>
