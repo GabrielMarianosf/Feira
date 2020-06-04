@@ -18,18 +18,21 @@
             <span class="line"></span>
         </nav>
     </header>
+    <center>
     <br><br><br><br /><br><br><br><br />
+    <h1>Deletar Bancas</h1>
+    </center>
     <?php
             session_start();
             if(isset($_SESSION['msg'])){
 			echo $_SESSION['msg'];
 			unset($_SESSION['msg']);
 		}
-        ?>  
-    <form action="deletar_bancas.php" id="form-pesquisa" method="POST">
+        ?><br/><br/>  
+    <form action="deletar_busca_banca.php" id="form-pesquisa" method="POST">
             <center> 
                 <b>Númedo do Box: *</b> <input type="text" id="box" name="box" placeholder="Digite o Box"
-                    required /><br><br>
+                    required />     
                 <input type="submit" value="Buscar" class="btn btn-primary" name="Cadastrar">
             </center>
         </form><br/>
