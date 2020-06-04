@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+ if(empty($_SESSION['Logado'])){
+		header("Location: telalogin.php");
+		die();
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-store" />
@@ -32,7 +39,7 @@
         </form>
     <br/><br/><div id="conteudoo">
 <?php
-            session_start();
+            
             include_once("../Model/conecta.php");
 
 		    $busca = $_POST['box'];	

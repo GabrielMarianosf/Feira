@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+    session_start();
+  if(isset($_SESSION['Logado'])){
+		header("Location: paineladm.php");
+		die();
+  }
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-store" />
@@ -19,8 +25,10 @@
                     Login
                 </h1>
                 <br /><br /><br /><br />
-                <b>Usuario: </b> <input type="text" id="user" name="user" placeholder="Digite o seu usuário" /><br><br>
-                <b>Senha: </b> <input type="password" id="senha" name="senha" placeholder="Digite sua senha" /><br><br>
+                <b>Usuario: </b> <input type="text" id="user" name="user" placeholder="Digite o seu usuário"
+                    required /><br><br>
+                <b>Senha: </b> <input type="password" id="senha" name="senha" placeholder="Digite sua senha"
+                    required /><br><br>
                 <input type="submit" class="btn btn-primary" value="Enviar" name="Entrar">
             </center>
         </div>

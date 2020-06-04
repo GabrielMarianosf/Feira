@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <head>
+<?php
+  session_start();
+  if(empty($_SESSION['Logado'])){
+		header("Location: telalogin.php");
+		die();
+  }
+?>
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-store" />
     <title>Area Administrador - Editar Bancas</title>
@@ -11,10 +18,10 @@
     <header id="header">
         <nav class="links" style="--items: 5;">
             <a href="../index.html">Site da Feira</a>
-            <a href="painelcadastrarbanca.html">Cadastrar Banca</a>
+            <a href="painelcadastrarbanca.php">Cadastrar Banca</a>
             <a href="editar_bancas.php">Editar / Buscar Banca</a>
             <a href="deletarbancas.php">Deletar Banca</a>
-            <a href="">Sair / Deslogar</a>
+            <a href="deslogar.php">Sair / Deslogar</a>
             <span class="line"></span>
         </nav>
     </header>
@@ -22,7 +29,7 @@
     <form action="editar_busca_banca.php" method="POST">
             <center>
                 
-                <h1>Editar uma Banca !!!!!!!! </h1><br/>
+                <h1>Editar uma Banca </h1><br/>
                 
                 <b>Númedo do Box: *</b> <input type="text" id="box" name="box" placeholder="Digite o Box"
                     required />
@@ -35,7 +42,7 @@
             <center>
             <div id="ff">
 <?php
-        session_start();
+        
         if(isset($_SESSION['msg'])){
 			echo $_SESSION['msg'];
 			unset($_SESSION['msg']);

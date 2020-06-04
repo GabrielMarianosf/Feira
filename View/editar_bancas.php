@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+if(empty($_SESSION['Logado'])){
+		header("Location: telalogin.php");
+		die();
+}
 include_once("../Model/conecta.php");
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if(!empty($id)){
@@ -36,7 +40,7 @@ if(isset($_SESSION['msg'])){
             <a href="painelcadastrarbanca.html">Cadastrar Banca</a>
             <a href="editar_bancas.php">Editar / Buscar Banca</a>
             <a href="deletarbancas.php">Deletar Banca</a>
-            <a href="">Sair / Deslogar</a>
+            <a href="deslogar.php">Sair / Deslogar</a>
             <span class="line"></span>
         </nav>
     </header>

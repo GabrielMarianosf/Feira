@@ -11,9 +11,11 @@
     $res = validarLogin($login);
 
     if ($res == true) {
-        header("Location: ../View/paineladm.html");
+        session_start();
+        $_SESSION['Logado'] = true;
+        header("Location: ../View/paineladm.php");
     }else {
-        header("Location: ../View/telalogin.html");
+        header("Location: ../View/telalogin.php");
     }
 
 

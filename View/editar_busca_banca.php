@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+session_start();
+ if(empty($_SESSION['Logado'])){
+		header("Location: telalogin.php");
+		die();
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-store" />
@@ -33,7 +40,7 @@
         <br/><br/>            
         <div id="conteudoo">
 <?php
-            session_start();
+            
             if(isset($_SESSION['msg'])){
 			echo $_SESSION['msg'];
 			unset($_SESSION['msg']);
