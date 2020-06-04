@@ -7,7 +7,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Cadastrar Banca</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='csss/estilo.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/estilo.css'>
 
 </head>
 
@@ -19,9 +21,9 @@
     </center>
 
     <div id="texto">
+        <center>
+            <form action="../controler/cadastrarbanca.php" method="POST">
 
-        <form action="../controler/cadastrarbanca.php" method="POST">
-            <center>
                 <b>Nome da banca: *</b> <input type="text" id="nome" name="nome" placeholder="Digite o nome da banca"
                     required /><br><br>
                 <b>Categoria da banca *</b>
@@ -41,12 +43,12 @@
                     required /><br><br>
                 <b>E-mail: *</b> <input type="email" class="form-control-inline" id="email" name="email"
                     placeholder="exemplo@exemplo.com" required /><br><br>
-                <b>Descrição da banca: * <br></b> <textarea id="descricao" name="descricao" rows="5" cols="80"
-                    required></textarea><br><br>
-                <div class="g-recaptcha" data-sitekey="6LdXS_oUAAAAAIpAaqaWH7RlUhsWFi_GbPUWZdcm"></div>
+                <b>Descrição da banca: * <br></b> <textarea class="form-control-inline" id="descricao" name="descricao"
+                    rows="5" cols="80" required></textarea><br><br>
                 <input type="submit" value="Enviar" class="btn btn-primary" name="Cadastrar">
-            </center>
-        </form>
+
+            </form>
+        </center>
 
 </body>
 

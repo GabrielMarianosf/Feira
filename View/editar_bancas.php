@@ -3,9 +3,15 @@
 session_start();
 include_once("../Model/conecta.php");
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+if(!empty($id)){
 $result_usuario = "SELECT * FROM banca WHERE id = '$id'";
 $resultado_usuario = mysqli_query($conexao, $result_usuario);
 $row_usuario = mysqli_fetch_assoc($resultado_usuario);
+}
+else{
+    $_SESSION['msg'] = " <script>alert('selecione uma banca para alterar !');</script> ";
+    header("Location: ../View/editarbancas.php");
+}
 if(isset($_SESSION['msg'])){
 			echo $_SESSION['msg'];
 			unset($_SESSION['msg']);
@@ -31,7 +37,7 @@ if(isset($_SESSION['msg'])){
                 <b>Nome da banca: *</b> <input type="text" value="<?php echo $row_usuario['nome'];?>" id="nome" name="nome" placeholder="Digite o nome da banca"
                     required /><br><br>
                 <b>Categoria da banca *</b>
-                <select name="categoria" id="categoria">
+                <select name="categoria" class="form-control" id="categoria">
                     <option value="<?php echo $row_usuario['categoria'];?>" selected><?php echo $row_usuario['categoria'];?></option>
                     <option value="Brinquedos">Brinquedos</option>
                     <option value="Eletrodomesticos">Eletrodomésticos</option>

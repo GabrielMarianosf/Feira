@@ -8,15 +8,15 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
-    <form action="../controler/" method="POST">
+    <form action="editar_busca_banca.php" method="POST">
             <center>
                 
-                <h1>Editar uma Banca !!!!!!!! </h1>
+                <h1>Editar uma Banca !!!!!!!! </h1><br/>
                 
                 <b>Númedo do Box: *</b> <input type="text" id="box" name="box" placeholder="Digite o Box"
                     required />
                 
-                <input type="submit" value="Enviar" class="btn btn-primary" name="Cadastrar">
+                <input type="submit" value="Buscar" class="btn btn-primary" name="Cadastrar">
             </center>
         </form>
         <br/><br/>
@@ -25,6 +25,10 @@
             <div id="ff">
 <?php
         session_start();
+        if(isset($_SESSION['msg'])){
+			echo $_SESSION['msg'];
+			unset($_SESSION['msg']);
+		}
         
         include_once("../Model/conecta.php");
         $pagina_atual = filter_input(INPUT_GET,'pagina', FILTER_SANITIZE_NUMBER_INT);		
@@ -123,7 +127,7 @@
                         </tr>
                         <tr>
                             <td><a class='btn btn-info left-margin' href='editar_bancas.php?id=" . $row['id'] . "'><span class='glyphicon glyphicon-edit'></span>Editar</a></td>
-                            <td><span class='glyphicon glyphicon-remove'></span><a class='btn btn-danger delete-object' href='deletar_bancas.php?id=" . $row['id'] . "'>Apagar</a></td>
+                            <td><span class='glyphicon glyphicon-remove'></span><a class='btn btn-danger delete-object' href='deletar_bancas.php?id=" . $row['id'] . "'>Deletar</a></td>
                         </tr>
                     </table></div></center><br/>
                     ";
@@ -170,10 +174,7 @@
 		
         echo "<a href='editarbancas.php?pagina=$quantidade_pg'>Ultima</a>";
         
-        if(isset($_SESSION['msg'])){
-			echo $_SESSION['msg'];
-			unset($_SESSION['msg']);
-		}
+        
 ?>
         </center>
         </div>
