@@ -168,6 +168,8 @@ code {
 
 #result {
 
+	position: unset;
+
   text-align: center;
   color: #FFf;
   top: 2%;

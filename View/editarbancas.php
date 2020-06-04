@@ -8,6 +8,17 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
+    <header id="header">
+        <nav class="links" style="--items: 5;">
+            <a href="painelcadastrarbanca.html">Cadastrar Banca</a>
+            <a href="editar_bancas.php">Editar / Buscar Banca</a>
+            <a href="deletarbancas.php">Deletar Banca</a>
+            <a href="">Sair / Deslogar</a>
+            <a href=""></a>
+            <span class="line"></span>
+        </nav>
+    </header>
+    <br><br><br><br /><br><br><br><br />
     <form action="editar_busca_banca.php" method="POST">
             <center>
                 
