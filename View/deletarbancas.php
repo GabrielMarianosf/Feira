@@ -15,7 +15,7 @@
 			unset($_SESSION['msg']);
 		}
         ?>  
-    <form action="deletar_busca_bancas.php" id="form-pesquisa" method="POST">
+    <form action="deletar_bancas.php" id="form-pesquisa" method="POST">
             <center> 
                 <b>Númedo do Box: *</b> <input type="text" id="box" name="box" placeholder="Digite o Box"
                     required /><br><br>
