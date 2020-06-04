@@ -27,9 +27,23 @@ if(isset($_SESSION['msg'])){
     <title>Area Administrador - Editar Bancas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="View/css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
+    <header id="header">
+        <nav class="links" style="--items: 5;">
+            <a href="painelcadastrarbanca.html">Cadastrar Banca</a>
+            <a href="editar_bancas.php">Editar / Buscar Banca</a>
+            <a href="deletarbancas.php">Deletar Banca</a>
+            <a href="">Sair / Deslogar</a>
+            <a href=""></a>
+            <span class="line"></span>
+        </nav>
+    </header>
+    <br><br><br><br /><br><br><br><br />
+    <center>
+    <h1>Editar Banca</h1>
+    </center><br/><br/>
     <form action="../controler/proc_editar_bancas.php" method="POST">
             <center>
                 <input type="hidden" value="<?php echo $row_usuario['id'];?>" class="form-control-inline" id="id" name="id"
@@ -37,7 +51,7 @@ if(isset($_SESSION['msg'])){
                 <b>Nome da banca: *</b> <input type="text" value="<?php echo $row_usuario['nome'];?>" id="nome" name="nome" placeholder="Digite o nome da banca"
                     required /><br><br>
                 <b>Categoria da banca *</b>
-                <select name="categoria" class="form-control" id="categoria">
+                <select name="categoria"  id="categoria">
                     <option value="<?php echo $row_usuario['categoria'];?>" selected><?php echo $row_usuario['categoria'];?></option>
                     <option value="Brinquedos">Brinquedos</option>
                     <option value="Eletrodomesticos">Eletrodomésticos</option>
