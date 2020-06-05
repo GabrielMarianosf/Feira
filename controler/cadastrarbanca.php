@@ -17,9 +17,9 @@
     $res = cadastraBanca($banca);
 
     if ($res == true) {
-        header("Location: ../View/painelcadastrarbanca.html");
+        header("Location: ../View/painelcadastrarbanca.php");
     }else {
-        header("Location: ../View/paineladm.html");
+        header("Location: ../View/paineladm.php");
     }
         
     } catch (Exception $e) {
