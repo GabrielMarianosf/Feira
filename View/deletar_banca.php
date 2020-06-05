@@ -32,7 +32,7 @@ session_start();
     </center><br/><br/>
     <div id="conteudoo">
 <?php
-            session_start();
+            
             include_once("../Model/conecta.php");
 
 		    $busca = filter_input(INPUT_GET,'box', FILTER_SANITIZE_NUMBER_INT);		
