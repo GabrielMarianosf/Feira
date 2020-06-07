@@ -157,8 +157,30 @@ code {
 #mapa {
   top: 30%;
   left: 5%;
-  
-  
+}
+
+#txt_srb {
+
+	position: relative;
+	text-align: justify;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	width: 70%;
+	height: 50%;
+	color: black;
+	top: 15%;
+	left: 17%;
+
+
+	
+
+}
+
+#map_feira iframe{
+
+	top: 100%;
+
+
+
 }
 
 #rodape p {
