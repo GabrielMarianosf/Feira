@@ -147,11 +147,18 @@ code {
 #rodape {
   top: 100%;
   left: 0%;
-  position: absolute;
+  position: inherit;
   background-color: rgb(13, 13, 14);
   width: 100%;
   height: 16%;
   float: right;
+}
+
+#mapa {
+  top: 30%;
+  left: 5%;
+  
+  
 }
 
 #rodape p {
