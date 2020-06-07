@@ -37,7 +37,7 @@ if(isset($_SESSION['msg'])){
     <header id="header">
         <nav class="links" style="--items: 5;">
             <a href="../index.html">Site da Feira</a>
-            <a href="painelcadastrarbanca.html">Cadastrar Banca</a>
+            <a href="painelcadastrarbanca.php">Cadastrar Banca</a>
             <a href="editar_bancas.php">Editar / Buscar Banca</a>
             <a href="deletarbancas.php">Deletar Banca</a>
             <a href="deslogar.php">Sair / Deslogar</a>
