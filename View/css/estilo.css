@@ -12,11 +12,6 @@ html, body, h1, h2, h3, h4, h5, h6, p, li, ol, ul, pre {
 }
 html, body { min-height: 100%; }
 
-body {
-	
-	
-	
-}
 code {
 	background: #fff1;
 	font-family: 'Inconsolata', monospace;
@@ -132,6 +127,7 @@ code {
 .links > a:nth-of-type(9):hover ~ .line { --index: 9; }
 .links > a:nth-of-type(10):hover ~ .line { --index: 10; }
 .links > a:last-of-type:hover ~ .line { --index: var(--items); }
+
 
 #texto{
   top: 14%;
