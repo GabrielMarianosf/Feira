@@ -7,7 +7,6 @@
             var recaptcha = document.forms["form-contato"]["g-recaptcha-response"];
             recaptcha.required = true;
             recaptcha.oninvalid = function (e) {
-                // fazer algo, no caso to dando um alert
                 alert("Por Favor marque a opção ' Não sou um robô ! '");
             }
         }
@@ -43,15 +42,14 @@
             <b>Telefone: *</b> <input type="text" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" /><br><br>
             <b>Assunto: *</b> <input type="text" id="assunto" name="assunto" placeholder="Assunto" required /><br><br>
             <b>Mensagem: * <br></b> <textarea id="mensagem" name="mensagem" rows="5" cols="80" required></textarea><br>
-            <div class="g-recaptcha" data-sitekey="6Lc0jgAVAAAAADN5rIumUNSwF96YwcOnvTAyFjQo"></div><br />
+            <div class="g-recaptcha" data-sitekey="6Lc0jgAVAAAAADN5rIumUNSwF96YwcOnvTAyFjQo"></div> <br />
+
             <input type="submit" value="Enviar" class="btn btn-primary" name="enviar"><br />
         </form><br />
-
-
     </div>
     <div id="rodape">
         <p>CNPJ: 0.000.000/0000-00 <br>
-            Todos os direitos reservados &copy; 2020 </p>
+            Todos os direitos reservados &copy; 2020</p>
     </div>
 </body>
 
